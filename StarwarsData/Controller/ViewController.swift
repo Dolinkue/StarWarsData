@@ -9,6 +9,10 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    
+    
+    
+    
     @IBOutlet weak var searchBar: UISearchBar!
     
     @IBOutlet weak var starWarsTable: UITableView!
@@ -36,7 +40,7 @@ class ViewController: UIViewController {
         
         Service.shared.fechData { data in
            self.starwars = data
-            print(self.starwars.results[0].name)
+            
         
         
         }
@@ -60,9 +64,21 @@ extension ViewController: UISearchBarDelegate {
 
 // MARK: - UITableViewDelegate como interactuamos con las celdas
 extension ViewController: UITableViewDelegate {
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("La celda #\(indexPath.row) fué seleccionada.")
+        
+        performSegue(withIdentifier: "showdata", sender: self)
+        
+        
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination = segue.destination as? StarWarsCaracterViewController {
+            destination.star = starwars.results[starWarsTable.indexPathForSelectedRow!.row]
+        }
+    }
+    
+    
 }
 
 // MARK: - UITableViewDataSource los datos de las celdas
@@ -79,8 +95,7 @@ extension ViewController: UITableViewDataSource {
         
         
         
-        cell.textLabel?.text = self.starwars.results[indexPath.row
-        ].name
+        cell.textLabel?.text = self.starwars.results[indexPath.row].name
         
         return cell
     }
