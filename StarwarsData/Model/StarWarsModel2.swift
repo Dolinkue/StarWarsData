@@ -1,5 +1,5 @@
 //
-//  StarwarsInfo.swift
+//  StarWarsModel.swift
 //  StarwarsData
 //
 //  Created by Nicolas Dolinkue on 23/05/2022.
@@ -8,15 +8,7 @@
 import Foundation
 
 
-struct Starwarsinfo: Decodable {
-    
-    let results: [Results]
-    
-    
-}
-
-
-struct Results: Decodable {
+struct StarWarsModel: Decodable {
     
     let name: String
     let height: String
@@ -24,7 +16,5 @@ struct Results: Decodable {
     let hair_color: String
     let skin_color: String
     let gender: String
-    
-    
     
 }

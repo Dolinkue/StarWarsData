@@ -59,6 +59,7 @@
                     <navigationItem key="navigationItem" title="Star Wars" id="crV-o1-59t"/>
                     <connections>
                         <outlet property="searchBar" destination="CTn-iv-Kqn" id="ZW9-yX-Qn1"/>
+                        <outlet property="starWarsTable" destination="J01-oS-N3u" id="TFO-Sr-1Xt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

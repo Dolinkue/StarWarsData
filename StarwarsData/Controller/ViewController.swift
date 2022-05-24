@@ -7,39 +7,36 @@
 
 import UIKit
 
-class ViewController: UITableViewController  {
+class ViewController: UIViewController {
 
     @IBOutlet weak var searchBar: UISearchBar!
     
+    @IBOutlet weak var starWarsTable: UITableView!
     
+   
+    var starwars: Starwarsinfo?
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         searchBar.delegate = self
-        
+        starWarsTable.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        starWarsTable.delegate = self
+        starWarsTable.dataSource = self
+        fecthData()
         
     }
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
+    func fecthData() {
         
-        return 1
+        Service.shared.fechData { data in
+           self.starwars = data
+        
+        
+        
+        }
     }
-    
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        return 0
-    }
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        
-        
-        return cell
-    }
-    
 
 }
 
@@ -47,9 +44,42 @@ class ViewController: UITableViewController  {
 extension ViewController: UISearchBarDelegate {
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         
+        guard let searBarText = searchBar.text else {return}
+        
+        
     }
     
     
 }
 
 
+
+// MARK: - UITableViewDelegate como interactuamos con las celdas
+extension ViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("La celda #\(indexPath.row) fué seleccionada.")
+    }
+}
+
+// MARK: - UITableViewDataSource los datos de las celdas
+extension ViewController: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return starwars?.results.count ?? 20
+    }
+    
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        
+    
+        let star = starwars?.results[indexPath.row]
+        let starName = star?.name
+        
+        
+        cell.textLabel?.text = starName
+        
+        return cell
+    }
+}
