@@ -14,7 +14,11 @@ class ViewController: UIViewController {
     @IBOutlet weak var starWarsTable: UITableView!
     
    
-    var starwars: Starwarsinfo?
+    var starwars = Starwarsinfo(results: [Results]()){
+        didSet{
+            starWarsTable.reloadData()
+        }
+    }
     
     
     override func viewDidLoad() {
@@ -32,7 +36,7 @@ class ViewController: UIViewController {
         
         Service.shared.fechData { data in
            self.starwars = data
-        
+            print(self.starwars.results[0].name)
         
         
         }
@@ -44,7 +48,7 @@ class ViewController: UIViewController {
 extension ViewController: UISearchBarDelegate {
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         
-        guard let searBarText = searchBar.text else {return}
+      //  guard let searBarText = searchBar.text else {return}
         
         
     }
@@ -65,7 +69,7 @@ extension ViewController: UITableViewDelegate {
 extension ViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return starwars?.results.count ?? 20
+        return starwars.results.count
     }
     
     
@@ -73,12 +77,10 @@ extension ViewController: UITableViewDataSource {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         
-    
-        let star = starwars?.results[indexPath.row]
-        let starName = star?.name
         
         
-        cell.textLabel?.text = starName
+        cell.textLabel?.text = self.starwars.results[indexPath.row
+        ].name
         
         return cell
     }
