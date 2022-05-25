@@ -9,9 +9,7 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    
-    
-    
+
     
     @IBOutlet weak var searchBar: UISearchBar!
     
@@ -62,6 +60,8 @@ extension ViewController: UISearchBarDelegate {
 
 
 
+
+
 // MARK: - UITableViewDelegate como interactuamos con las celdas
 extension ViewController: UITableViewDelegate {
     
@@ -81,7 +81,9 @@ extension ViewController: UITableViewDelegate {
     
 }
 
-// MARK: - UITableViewDataSource los datos de las celdas
+
+
+// MARK: - UITableViewDataSource
 extension ViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

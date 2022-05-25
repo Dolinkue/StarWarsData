@@ -15,7 +15,6 @@
 		6F2858FF283C091800141B1B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6F2858FD283C091800141B1B /* LaunchScreen.storyboard */; };
 		6F285907283C0BED00141B1B /* StarwarsInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F285906283C0BED00141B1B /* StarwarsInfo.swift */; };
 		6F285909283C0DD500141B1B /* StarWarsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F285908283C0DD500141B1B /* StarWarsRequest.swift */; };
-		6F285910283C103000141B1B /* StarWarsModel2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F28590F283C103000141B1B /* StarWarsModel2.swift */; };
 		6F532007283D60EC0038AA4D /* StarWarsCaracterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F532006283D60EC0038AA4D /* StarWarsCaracterViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -30,7 +29,6 @@
 		6F285900283C091800141B1B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6F285906283C0BED00141B1B /* StarwarsInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarwarsInfo.swift; sourceTree = "<group>"; };
 		6F285908283C0DD500141B1B /* StarWarsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarWarsRequest.swift; sourceTree = "<group>"; };
-		6F28590F283C103000141B1B /* StarWarsModel2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarWarsModel2.swift; sourceTree = "<group>"; };
 		6F532006283D60EC0038AA4D /* StarWarsCaracterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarWarsCaracterViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -80,7 +78,6 @@
 			isa = PBXGroup;
 			children = (
 				6F285906283C0BED00141B1B /* StarwarsInfo.swift */,
-				6F28590F283C103000141B1B /* StarWarsModel2.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -179,7 +176,6 @@
 				6F285907283C0BED00141B1B /* StarwarsInfo.swift in Sources */,
 				6F2858F7283C091800141B1B /* ViewController.swift in Sources */,
 				6F2858F3283C091800141B1B /* AppDelegate.swift in Sources */,
-				6F285910283C103000141B1B /* StarWarsModel2.swift in Sources */,
 				6F2858F5283C091800141B1B /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
