@@ -10,7 +10,7 @@ import Foundation
 
 struct Starwarsinfo: Decodable {
     
-    let results: [Results]
+    var results: [Results]
     
     
 }

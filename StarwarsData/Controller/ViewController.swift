@@ -9,7 +9,8 @@ import UIKit
 
 class ViewController: UIViewController {
 
-
+    
+    var fetchedCaracter = Starwarsinfo(results: [Results]())
     
     @IBOutlet weak var searchBar: UISearchBar!
     
@@ -31,7 +32,9 @@ class ViewController: UIViewController {
         starWarsTable.delegate = self
         starWarsTable.dataSource = self
         fecthData()
-        
+        self.starWarsTable.tableHeaderView = searchBar
+        searchBar.showsScopeBar = true
+        searchBar.scopeButtonTitles = ["1", "2"]
     }
 
     func fecthData() {
@@ -39,20 +42,36 @@ class ViewController: UIViewController {
         Service.shared.fechData { data in
            self.starwars = data
             
-        
+            
         
         }
     }
+    
+    
+    
+    
 
 }
 
 
 extension ViewController: UISearchBarDelegate {
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText == "" {
+            fecthData()
+        } else {
+            
+                starwars.results = starwars.results.filter({ Results in
+                    return Results.name.contains(searchText)
+                })
+            
+            
+            
+            
+            
+        }
         
-      //  guard let searBarText = searchBar.text else {return}
-        
-        
+        self.starWarsTable.reloadData()
     }
     
     
@@ -98,6 +117,7 @@ extension ViewController: UITableViewDataSource {
         
         
         cell.textLabel?.text = self.starwars.results[indexPath.row].name
+        
         
         return cell
     }

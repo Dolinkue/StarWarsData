@@ -32,10 +32,15 @@ class StarWarsCaracterViewController: UIViewController {
         gender.text = "Gender: " + star!.gender
         mass.text = star?.mass
         
-        if nameLabel.text == "Name: Darth Vader" {
-            imageCaracter.image = UIImage(named: "darthvader")
-
+        
+        switch nameLabel.text {
+            case "Name: Darth Vader" :
+                imageCaracter.image = UIImage(named: "darthvader")
+            default:
+                print("no hay imagen")
+            
         }
+        
         
     }
     
