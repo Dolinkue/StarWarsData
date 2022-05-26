@@ -36,6 +36,12 @@ class StarWarsCaracterViewController: UIViewController {
         switch nameLabel.text {
             case "Name: Darth Vader" :
                 imageCaracter.image = UIImage(named: "darthvader")
+            case "Name: Luke Skywalker" :
+                imageCaracter.image = UIImage(named: "luke")
+            case "Name: C-3PO" :
+                imageCaracter.image = UIImage(named: "c-3po")
+            case "Name: R2-D2" :
+                imageCaracter.image = UIImage(named: "r2d2")
             default:
                 print("no hay imagen")
             

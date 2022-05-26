@@ -10,6 +10,7 @@ import Foundation
 
 
 struct Service {
+    
     static let shared = Service()
     
     func fechData(completion: @escaping(Starwarsinfo) -> ()) {

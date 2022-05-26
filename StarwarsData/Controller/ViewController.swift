@@ -10,7 +10,7 @@ import UIKit
 class ViewController: UIViewController {
 
     
-    var fetchedCaracter = Starwarsinfo(results: [Results]())
+   
     
     @IBOutlet weak var searchBar: UISearchBar!
     
@@ -33,8 +33,6 @@ class ViewController: UIViewController {
         starWarsTable.dataSource = self
         fecthData()
         self.starWarsTable.tableHeaderView = searchBar
-        searchBar.showsScopeBar = true
-        searchBar.scopeButtonTitles = ["1", "2"]
     }
 
     func fecthData() {
@@ -52,6 +50,8 @@ class ViewController: UIViewController {
     
 
 }
+
+// MARK: - UISearchBarDelegate
 
 
 extension ViewController: UISearchBarDelegate {
@@ -81,7 +81,9 @@ extension ViewController: UISearchBarDelegate {
 
 
 
-// MARK: - UITableViewDelegate como interactuamos con las celdas
+// MARK: - UITableViewDelegate
+
+
 extension ViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
